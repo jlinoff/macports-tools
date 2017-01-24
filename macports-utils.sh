@@ -10,7 +10,7 @@ function info() {
 }
 
 # Print a warning message with context (caller line number)
-function info() {
+function warn() {
     local Msg="$*"
     echo -e "WARNING:${BASH_LINENO[0]}: $Msg"
 }
