@@ -59,14 +59,14 @@ EXAMPLES
     \$ $Base 2.3.5
 
     # Example 3: install macports 2.3.5 in /opt/macports/2.3.5 with no prompt.
-    \$ $Base -y 2.3.5
+    \$ $Base -n 2.3.5
 
     # Example 4: install macports 2.3.5 in /opt/macports/2.3.5 with no prompt, use HTTP (-f)
-    \$ $Base -f -y 2.3.5
+    \$ $Base -f -n 2.3.5
 
     # Example 5: install macports 2.3.5 in a custom directory: /opt/tmp/macports/2.3.5
     #            with no prompt, use HTTP (-f)
-    \$ $Base -f -y -d /opt/tmp/macports 2.3.5
+    \$ $Base -f -n -d /opt/tmp/macports 2.3.5
 
 EOF
     exit 0
