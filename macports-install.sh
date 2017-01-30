@@ -122,7 +122,7 @@ if [[ "$MacportsVersion" == "" ]] ; then
     err 'Macports version not specified. Cannot continue. See -h for more information.'
 fi
 
-MacportsTarfile="MacPorts-2.3.5.tar.bz2"
+MacportsTarfile="MacPorts-$MacportsVersion.tar.bz2"
 MacportsURL="https://github.com/macports/macports-base/releases/download/v$MacportsVersion/$MacportsTarfile"
 MacportsInstallDir=$InstallDir/$MacportsVersion
 MacportsLatestDir=$InstallDir/latest
