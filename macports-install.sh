@@ -234,8 +234,7 @@ runcmd popd
 
 # Step 3. Create the latest link
 runcmd pushd $MacportsInstallDir
-[ -f latest ] && runcmd sudo rm -f latest || true
-runcmd sudo ln -s $MacportsInstallDir $MacportsLatestDir
+runcmd sudo ln -f -s $MacportsInstallDir $MacportsLatestDir
 runcmd popd
 
 # Step 4. Configure to use HTTP if the user specified --fix.
