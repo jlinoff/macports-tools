@@ -59,14 +59,14 @@ EXAMPLES
     $ macports-install.sh 2.3.5
 
     # Example 3: install macports 2.3.5 in /opt/macports/2.3.5 with no prompt.
-    $ macports-install.sh -y 2.3.5
+    $ macports-install.sh -n 2.3.5
 
     # Example 4: install macports 2.3.5 in /opt/macports/2.3.5 with no prompt, use HTTP (-f)
-    $ macports-install.sh -f -y 2.3.5
+    $ macports-install.sh -f -n 2.3.5
 
     # Example 5: install macports 2.3.5 in a custom directory: /opt/tmp/macports/2.3.5
     #            with no prompt, use HTTP (-f)
-    $ macports-install.sh -f -y -d /opt/tmp/macports 2.3.5
+    $ macports-install.sh -f -n -d /opt/tmp/macports 2.3.5
 ```
 
 ### Help for macports-update.sh
