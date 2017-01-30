@@ -1,7 +1,11 @@
 # macports-tools
 Contains tools for installing and updating macports.
 
-I use these tools pretty frequently and thought that others might find them useful.
+I use these tools pretty frequently and thought that others might find them useful. Here is how I used it to update to the recent 2.4.0 release.
+```bash
+$ ./macports-install.sh -n -f -o 2.4.0
+[output snipped]
+```
 
 The available tools are defined in the table below.
 
