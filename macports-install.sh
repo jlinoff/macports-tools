@@ -256,8 +256,8 @@ runcmdst 0 1 sudo $MacportsInstallDir/bin/port upgrade outdated
 
 # Step 6. Update
 if [[ ! "$PortsListFile" == "" ]] ; then
-    info "Updated the packages."
-    cat $PortsListFile | grep '^ ' | grep '(active)' | awk '{print $1}' | uniq | xargs -L1 -I{} runcmd sudo $PortProg install {}
+    info "Update the packages."
+    cat $PortsListFile | grep '^ ' | grep '(active)' | awk '{print $1}' | uniq | xargs -L1 -I{} sudo $PortProg install {}
 fi
 
 info "Done."
