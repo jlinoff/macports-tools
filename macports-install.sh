@@ -76,7 +76,7 @@ EOF
 # ================================================================
 # Main
 # ================================================================
-Version='0.1'
+Version='0.2'
 MacportsVersion=""
 InstallDir='/opt/macports'
 Fix=0
@@ -224,7 +224,8 @@ fi
 #         Note: could use curl here, doesn't make a difference.
 runcmd sudo mkdir -p $WorkDir
 runcmd pushd $WorkDir
-runcmd sudo wget --no-check-certificate $MacportsURL
+#runcmd sudo wget --no-check-certificate $MacportsURL
+runcmd sudo curl -L -k -O $MacportsURL
 runcmd sudo tar jxf $MacportsTarfile
 runcmd cd $BuildDir
 runcmd sudo ./configure --prefix=$MacportsInstallDir
