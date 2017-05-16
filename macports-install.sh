@@ -273,8 +273,8 @@ The $MacportsLastestDir link has been updated.
 You can access the macports port program by updating your PATH and
 MANPATH variables as follows:
 
-   export PORT="${MacportsLastestDir}/bin:\$PATH"
-   export MANPORT="${MacportsLastestDir}/share/man:\$MANPATH"
+   export PORT="${MacportsLastetDir}/bin:\$PATH"
+   export MANPORT="${MacportsLastetDir}/share/man:\$MANPATH"
 
 Once the path variables have been updated you can verify that
 everything works by checking the version.
