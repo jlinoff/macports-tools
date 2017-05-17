@@ -108,3 +108,33 @@ EXAMPLES
     $ macports-update.sh
 
 ```
+
+### How I installed it
+This describes how I installed it on a new machine.
+
+```bash
+$ sudo -s
+$ mkdir -p /opt/macports
+$ cd /opt/macports
+$ git clone https://github.com/jlinoff/macports-tools.git
+$ macports-tools/macports-install.sh -n 2.4.1
+<output snipped>
+$ ls /opt/macports
+2.4.1		latest		macports-tools
+$ git clone
+```
+
+I add the following path updates to my ~/.bashrc to access the tools.
+
+```bash
+export MACPORTS_ROOT='/opt/macports/latest'
+export GOROOT='/opt/go/latest'
+export PATH="~/bin:$GOROOT/bin:${MACPORTS_ROOT}/bin:${PATH}"
+```
+
+I then added the following aliases to my ~/.bashrc so that I could run mpu to my periodic updates.
+
+```bash
+alias mpi='/opt/macports/macports-tools/macports-install.sh'
+alias mpu='/opt/macports/macports-tools/macports-update.sh'
+```
