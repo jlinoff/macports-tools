@@ -43,6 +43,11 @@ OPTIONS
     -f, --fix           Fix to use HTTP instead of port 873.
 
     -h, --help          This help message.
+    
+    -i, --ignore        Ignore the current installation.
+                        This is useful if you get an error
+                        when trying to get the existing macports
+                        information.
 
     -n, --no-prompt     Do not prompt the user to continue.
                         Use this for batch scripts.
