@@ -40,6 +40,11 @@ OPTIONS
 
     -h, --help          This help message.
 
+    -i, --ignore        Ignore the current installation.
+                        This is useful if you get an error
+                        when trying to get the existing macports
+                        information.
+
     -n, --no-prompt     Do not prompt the user to continue.
                         Use this for batch scripts.
 
@@ -76,7 +81,7 @@ EOF
 # ================================================================
 # Main
 # ================================================================
-Version='0.2'
+Version='0.3'
 MacportsVersion=""
 InstallDir='/opt/macports'
 Fix=0
@@ -98,6 +103,9 @@ while (( $# > 0 )) ; do
             ;;
         -h|--help)
             help
+            ;;
+        -i|--ignore)
+            Ignore=1
             ;;
         -n|--no-prompt)
             Prompt=0
@@ -131,7 +139,8 @@ WorkDir="$MacportsInstallDir/work"
 SrcDir=$(echo "$MacportsTarfile" | sed -e 's/\.tar.bz2//')
 BuildDir="$WorkDir/$SrcDir"
 FixMsg='Use port 873 for updates.'
-if (( Fix )) ; then FixMsg='Use HTTP for updates.' ; fi
+(( Fix )) && FixMsg='Use HTTP for updates.'
+(( Ignore )) && PortProg=""
 
 # Report what we are going to do.
 cat <<EOF
@@ -180,7 +189,6 @@ fi
 
 if (( Run == 0 )) ; then exit 0 ; fi
 
-
 # Do not overwrite an existing installation. Make the user do it.
 if [ -d "$MacportsInstallDir" ] ; then
     if (( Overwrite )) ; then
@@ -217,7 +225,10 @@ PortsListFile=''
 if [ -f "$PortProg" ] ; then
     PortsListFile="/tmp/ports-$$.list"
     info "Get the packages that are currently installed."
-    runcmd $PortProg installed requested '>' $PortsListFile
+    runcmdnox $PortProg installed requested '>' $PortsListFile
+    if (( $? )) ; then
+        err "Try re-running with the -i option."
+    fi
 fi
 
 # Step 2. Do the base installation.

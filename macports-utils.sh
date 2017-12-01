@@ -57,3 +57,18 @@ function runcmdst() {
     fi
 }
 
+# Run a command but do not exit on error.
+function runcmdnox() {
+    local Cmd="$*"
+    local LineNum=${BASH_LINENO[0]}
+    echo
+    echo "INFO:${LineNum}: cmd.run=$Cmd"
+    eval "$Cmd"
+    local st=$?
+    echo "INFO:${LineNum}: cmd.status=$st"
+    if (( st )) ; then
+        echo "ERROR:${LineNum}: command failed"
+    fi
+    return $st
+}
+
